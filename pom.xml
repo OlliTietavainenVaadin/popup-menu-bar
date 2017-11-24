@@ -5,7 +5,7 @@
 	<groupId>org.vaadin.addons</groupId>
 	<artifactId>popup-menu-bar-root</artifactId>
 	<packaging>pom</packaging>
-	<version>0.1</version>
+	<version>0.2.0</version>
 	<name>MyComponent Add-on Root Project</name>
 
 	<prerequisites>

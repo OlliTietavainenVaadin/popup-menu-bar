@@ -34,12 +34,12 @@ public class DemoUI extends UI
 
         MenuBar.MenuItem helpMainItem = menuBar.addItem("Help", (MenuBar.Command) null);
 
-        MenuBar.MenuItem generalHelp = helpMainItem.addItem("General help", (MenuBar.Command) null);
+        MenuBar.MenuItem generalHelp = helpMainItem.addItem("General help (new window)", (MenuBar.Command) null);
 
-        MenuBar.MenuItem about = helpMainItem.addItem("About", (MenuBar.Command) null);
+        MenuBar.MenuItem about = helpMainItem.addItem("About (this window)", (MenuBar.Command) null);
 
-        menuBar.setMenuItemUrl(generalHelp, "https://www.vaadin.com");
-        menuBar.setMenuItemUrl(about,"https://www.google.com");
+        menuBar.setMenuItemUrl(generalHelp, "https://www.vaadin.com", "_blank");
+        menuBar.setMenuItemUrl(about,"https://www.google.com", "_self");
 
         // Show it in the middle of the screen
         final VerticalLayout layout = new VerticalLayout();
