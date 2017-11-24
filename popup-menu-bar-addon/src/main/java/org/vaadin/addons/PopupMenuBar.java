@@ -19,14 +19,24 @@ public class PopupMenuBar extends MenuBar {
         return (PopupMenuBarState) super.getState();
     }
 
-    public void setMenuItemUrl(MenuItem menuItem, String url) {
+    /**
+     * Create a browser window opener item instead of a normal menu item
+     * @param menuItem item to enhance
+     * @param url URL to open
+     * @param target target (for example "_blank", which is the default)
+     */
+    public void setMenuItemUrl(MenuItem menuItem, String url, String target) {
         if (menuItem == null) {
             return;
         }
         if (getState().menuItemUrls == null) {
             getState().menuItemUrls = new HashMap<>();
         }
+        if (getState().menuItemTargets == null) {
+            getState().menuItemTargets = new HashMap<>();
+        }
         getState().menuItemUrls.put(menuItem.getId(), url);
+        getState().menuItemTargets.put(menuItem.getId(), target);
     }
 
 }

@@ -27,6 +27,7 @@ import java.util.Stack;
 public class PopupMenuBarConnector extends MenuBarConnector {
 
     private Map<Integer, String> menuItemUrls;
+    private Map<Integer, String> menuItemTargets;
 
     public PopupMenuBarConnector() {
     }
@@ -174,6 +175,7 @@ public class PopupMenuBarConnector extends MenuBarConnector {
     @Override
     public void onStateChanged(StateChangeEvent stateChangeEvent) {
         this.menuItemUrls = getState().menuItemUrls;
+        this.menuItemTargets = getState().menuItemTargets;
         super.onStateChanged(stateChangeEvent);
 
         updateUrlsToMenuItems(getWidget());
@@ -202,12 +204,12 @@ public class PopupMenuBarConnector extends MenuBarConnector {
             }
             final Integer itemId = item.getId();
             if (menuItemUrls.containsKey(itemId)) {
-
+                final String target = menuItemTargets.containsKey(itemId) ? menuItemTargets.get(itemId) : "_blank";
                 item.setCommand(new Command() {
                     @Override
                     public void execute() {
                         if (menuBar.isAttached()) {
-                            Window.open(menuItemUrls.get(itemId), "_blank", "");
+                            Window.open(menuItemUrls.get(itemId), target, "");
                             menuBar.hideChildren();
 
                         }
